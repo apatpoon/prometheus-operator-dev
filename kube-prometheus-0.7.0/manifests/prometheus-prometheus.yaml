@@ -6,6 +6,8 @@ metadata:
   name: k8s
   namespace: monitoring
 spec:
+  # 数据持久化时间
+  retention: 4d
   alerting:
     alertmanagers:
     - name: alertmanager-main
