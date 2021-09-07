@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: redis-k8s
+  namespace: monitoring
+  labels:
+    app: redis
+spec:
+  jobLabel: redis
+  endpoints:
+    - port: redis-exporter
+      interval: 30s
+  selector:
+    matchLabels:
+      app: redis
+  namespaceSelector:
+    matchNames:
+      - redis
